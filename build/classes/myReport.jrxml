@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="540" leftMargin="36" rightMargin="36" topMargin="36" bottomMargin="36" uuid="17a107d3-9e49-49a9-8403-1287b47be108">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="363"/>
+	<parameter name="missingkb" class="java.lang.String"/>
+	<parameter name="roomnumber" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="technician" class="java.lang.String"/>
+	<parameter name="room" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="head" class="java.lang.String"/>
+	<parameter name="missingmice" class="java.lang.String"/>
+	<parameter name="keyboard" class="java.lang.String"/>
+	<parameter name="mice" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT computers.* from computers join comp_details on computers.comp_id = comp_details.comp_id left join room on room.room_id = comp_details.room_id where room.room_id = $P{roomnumber}]]>
+	</queryString>
+	<field name="comp_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="os" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="model" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="processor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="motherboard" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="monitor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ram" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kboard" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mouse" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vga" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hdd" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image>
+				<reportElement x="439" y="1" width="100" height="100" uuid="3972395f-2c80-409d-a9c9-3fb3acf2cab5"/>
+				<imageExpression><![CDATA["C:\\Users\\arcillaroldan65\\Documents\\NetBeansProjects\\GetComputerInfoWithUsb\\src\\cict.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="0" width="100" height="100" uuid="d0bbb665-5a10-4e82-ab2a-0eb4e2656329"/>
+				<imageExpression><![CDATA["C:\\Users\\arcillaroldan65\\Documents\\NetBeansProjects\\GetComputerInfoWithUsb\\bsu.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="197" y="0" width="159" height="20" uuid="91b45b39-5d7e-494e-9bd0-ad3095f88813"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bulacan State University]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="101" y="20" width="335" height="20" uuid="f5baaad6-3c0a-4373-ab15-9fd085f14a22"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[College of Information and Communications Technology]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="199" y="40" width="159" height="20" uuid="f8cbf6f6-3a8c-458f-abb1-186b77865593"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[City of Malolos, Bulacan]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="67" height="20" uuid="2d6357a5-791c-4bea-8793-4a69e2663f05"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Technician:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="67" height="20" uuid="9afd6171-5caf-42dc-bb2f-f3180799dfbc"/>
+				<textElement verticalAlignment="Top">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Room:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="67" y="0" width="244" height="20" uuid="0fd4372c-b23e-463e-bd6f-3dc9092c5ec7"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{technician}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="20" width="244" height="20" uuid="258a2096-8eca-49e8-a8ed-42c1eb9d9099"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{room}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="312" y="0" width="100" height="20" uuid="f3031be5-9da5-4f62-9f8a-bd7abafacd08"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[As of:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="20" width="100" height="20" uuid="6cf7f090-0da4-4d53-9fe1-d9ac3cd99ef3"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Head Technician:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="412" y="0" width="128" height="20" uuid="cfac0f4d-56de-43d4-9b9f-faf9943fc223"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="20" width="127" height="20" uuid="cc07d052-6a78-45b5-8457-6240716ab584"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{head}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="67" height="20" uuid="6a094dc5-a937-460e-95b6-78feb4d539c6"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Computer ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="2" width="69" height="20" uuid="4f862d7b-8ec7-4e06-b7d0-d2640f8dd67d"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Processor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="2" width="77" height="20" uuid="8ad62630-0e42-44d0-96ee-b26199c44024"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Motherboard Serial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="2" width="66" height="20" uuid="729ec551-42b7-43ae-92e2-5038e92c0ac7"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Monitor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="2" width="43" height="20" uuid="5a2d0070-89b6-4d50-b221-b83874414e5f"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RAM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="2" width="53" height="20" uuid="54b9c4c6-5d99-47dd-8363-fedf7c68d7bd"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Keyboard]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="2" width="46" height="20" uuid="95e0b12c-b364-48f7-8b00-266476f9094a"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mouse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="486" y="2" width="53" height="20" uuid="798a0c79-686b-46da-9241-efbe8e571de8"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HDD]]></text>
+			</staticText>
+			<line>
+				<reportElement x="485" y="1" width="1" height="21" uuid="04fb984b-d5fc-47cb-85cd-5794d0480f32"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="539" height="1" uuid="af360885-187b-4872-b97a-eaffd63aabd4"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="22" uuid="6dabfd75-5d8b-4c53-b345-af92fa89e855"/>
+			</line>
+			<line>
+				<reportElement x="67" y="1" width="1" height="21" uuid="8c527b41-8dbc-400f-8db0-986be213ca50"/>
+			</line>
+			<line>
+				<reportElement x="327" y="1" width="1" height="21" uuid="78120a35-614d-4cc1-a8f3-0ee2fc51b684"/>
+			</line>
+			<line>
+				<reportElement x="428" y="1" width="1" height="21" uuid="dc79ca73-0fd0-432a-9101-509c77aa1121"/>
+			</line>
+			<line>
+				<reportElement x="381" y="1" width="1" height="21" uuid="9d91e3e8-3946-4588-a5aa-b2bf14158908"/>
+			</line>
+			<line>
+				<reportElement x="283" y="1" width="1" height="21" uuid="a9f8b0f6-ca89-4602-b7fa-32aa45fa5eda"/>
+			</line>
+			<line>
+				<reportElement x="216" y="1" width="1" height="21" uuid="a9a3bae1-6e6b-416f-86dd-7e80b5b850a6"/>
+			</line>
+			<line>
+				<reportElement x="137" y="1" width="1" height="21" uuid="8a0bac77-ae43-4fa1-b9a1-2a895e943139"/>
+			</line>
+			<line>
+				<reportElement x="539" y="0" width="1" height="22" uuid="3b040f03-bd7b-4ce8-bf44-1bbd68e250b7"/>
+			</line>
+			<staticText>
+				<reportElement x="429" y="2" width="56" height="20" uuid="523b2cc5-2caa-4d4b-b5de-9a0ed6c8d536"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VGA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="66" height="20" uuid="55712afb-8fab-4a83-b66d-25106fd53c51"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comp_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="0" width="69" height="20" uuid="fe73fc1e-33dc-4814-b9f0-8a36ccfc3b75"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{processor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="1" width="78" height="19" uuid="5cdbb84f-2373-42a5-82c7-03c119c081d5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motherboard}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="217" y="1" width="66" height="20" uuid="ed31ebbd-39c7-4e91-aba0-4a88564f932c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monitor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="1" width="43" height="19" uuid="e6bb8f06-da8e-4fe9-83e7-0f8885f35272"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ram}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="1" width="53" height="19" uuid="79d89285-01ea-48b5-b8a7-2fea3d4ee68d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kboard}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="382" y="1" width="46" height="19" uuid="db895b5f-37f4-4082-8310-669e3265fe81"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mouse}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="429" y="1" width="56" height="19" uuid="f2fa3c16-7baf-4932-9c93-55a8e59a0d80"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="1" width="53" height="19" uuid="69ae8448-1858-4a89-8aca-7ae32df6b118"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hdd}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="539" height="1" uuid="0908abba-3636-41d5-a8c7-71edf94df647"/>
+			</line>
+			<line>
+				<reportElement x="428" y="1" width="1" height="19" uuid="fa7bfd0d-4b68-4861-b590-8da2112f2a8c"/>
+			</line>
+			<line>
+				<reportElement x="485" y="1" width="1" height="19" uuid="ae8842e6-9b37-4ec9-bc76-b55692ded509"/>
+			</line>
+			<line>
+				<reportElement x="381" y="1" width="1" height="19" uuid="dfe6ae3d-48da-4630-a7ce-71ccdb89b452"/>
+			</line>
+			<line>
+				<reportElement x="0" y="20" width="539" height="1" uuid="2a254f53-6ba1-470b-9b21-d9e8bdeadd7f"/>
+			</line>
+			<line>
+				<reportElement x="67" y="1" width="1" height="19" uuid="398bfce4-3c83-4573-b920-5300d24560ce"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="1" height="19" uuid="751c44a7-452e-4861-8355-242e3b89445a"/>
+			</line>
+			<line>
+				<reportElement x="137" y="1" width="1" height="19" uuid="24db835b-fd2a-481b-8c39-1754adb04634"/>
+			</line>
+			<line>
+				<reportElement x="216" y="1" width="1" height="19" uuid="d4d67601-166e-4bf2-b719-b81720b62fa7"/>
+			</line>
+			<line>
+				<reportElement x="283" y="1" width="1" height="19" uuid="12b3f3cc-b141-4ba7-81e8-4c037a13b5d7"/>
+			</line>
+			<line>
+				<reportElement x="327" y="1" width="1" height="19" uuid="40235060-0f80-4d93-926e-959db425b647"/>
+			</line>
+			<line>
+				<reportElement x="539" y="1" width="1" height="19" uuid="d5be3db5-265c-4546-9a77-fdb0caaf260d"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="134" splitType="Stretch">
+			<textField>
+				<reportElement x="454" y="113" width="86" height="20" uuid="59e70474-0da6-4857-9c6b-59b9f0838649"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="37" y="40" width="100" height="20" uuid="421f9e2d-afb5-420f-ae6f-0f2781ee13bf"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Head Technician]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="97" width="100" height="20" uuid="700a206d-0f81-4b61-9cf8-b88d202d79d8"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dean, CICT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="40" width="100" height="20" uuid="b0f6b83c-7364-4993-8034-7ca12a11be9c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="279" y="9" width="111" height="20" uuid="cb6b091d-ff80-47f9-99bd-223fa2cb2e00"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Keyboards:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="29" width="111" height="20" uuid="f8b8806f-4875-4d22-b40b-156aa7fe5da6"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Mice:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="9" width="116" height="20" uuid="a8752e84-8b0e-4ec0-a2ae-c470ca884d0a"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Missing Keyboards:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="29" width="116" height="20" uuid="41a2ccdc-7206-4216-9ac0-4cf8ab670a10"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Missing Mice:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="170" y="9" width="100" height="20" uuid="bcf531ac-4b8f-43c7-873d-b5f7967f9438"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{missingkb}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="171" y="29" width="100" height="20" uuid="2d0f7c13-677f-4314-8555-6acf12799770"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{missingmice}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="9" width="100" height="20" uuid="70845415-5920-4d4c-921d-56ce9005f6ec"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{keyboard}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="29" width="100" height="20" uuid="12ed212b-4c3f-46a4-a987-5c5d68758fd0"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{mice}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
